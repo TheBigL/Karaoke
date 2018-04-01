@@ -42,4 +42,11 @@ public class Song
     {
         this.videoURL = videoURL;
     }
+
+    public void readyToSing(Song song)
+    {
+        System.out.printf("");
+    }
+
+
 }
