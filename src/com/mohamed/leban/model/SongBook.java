@@ -40,20 +40,21 @@ class SongBook
 
 
     //TODO: Create a method to remove a song from a list.
-    public boolean removeSong(String title)
+    public void removeSong(String title)
     {
-        boolean songExists = false;
+
         for(Song testSong: SongBook)
         {
-            if(testSong.getTitle().equals(title))
+            if(title.equals(testSong.getTitle()))
             {
-                songExists = true;
                 SongBook.remove(testSong);
                 break;
             }
         }
 
-        return songExists;
+        System.out.printf("%s is not in our list of songs...", title);
+
+
     }
 
 
