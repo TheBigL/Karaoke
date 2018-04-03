@@ -48,10 +48,18 @@ public class KaraokeMachine
                 {
                     case "add":
                         Song newSong = addSong();
-                        songBook.addSong(newSong);
+                        try {
+                            songBook.addSong(newSong);
+                            System.out.printf("The song %s has been added!", newSong.getTitle());
+                        } catch (Exception e) {
+                            e.getMessage();
+                        }
 
                     case "delete":
                         //TODO: Delete a song
+
+                    case "sing":
+                        //TODO: Add a method in which the user can perform a copypasta on the URL
 
                     case "quit":
                         System.out.println("Thanks for playing!%n I hope you play again sometime.%n");

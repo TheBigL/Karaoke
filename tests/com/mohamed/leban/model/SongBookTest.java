@@ -1,8 +1,11 @@
 package com.mohamed.leban.model;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.function.Executable;
+
 import javax.annotation.processing.Generated;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,12 +17,11 @@ public class SongBookTest
     private Song mockSong, mockSong2, mockSong3, mockSong4, mockSong5;
 
     @BeforeAll
-    public void setUp()
-    {
+    public void setUp() throws Exception {
         //Adding various songs to the SongBook
         //色々な歌を唱歌集に追加する
         songList = new SongBook();
-        mockSong = new Song("Ice Cube", "The Nigga you love to hate", "https://www.youtube.com/watch?v=UN2D9yct2tY");
+        mockSong = new Song("Village People", "Macho Man", "https://www.youtube.com/watch?v=rV6gYFKrT7Y");
         songList.addSong(mockSong);
         mockSong2 = new Song("Dr. Dre", "Still DRE", "https://www.youtube.com/watch?v=x7yPhExdj3E");
         songList.addSong(mockSong2);
@@ -41,9 +43,31 @@ public class SongBookTest
     }
 
     @Test
-    @Generated("Confirm that a certain Artist is on the Songbook List")
-    public void searchArtist()
+    public void noSongWithoutAnArtist() throws Exception
     {
+        Song noArtist = new Song("", "Unknown Song", "https://www.youtube.com/");
+        assertThrows(IllegalArgumentException.class, () -> {songList.addSong(noArtist);});
+    }
+
+
+    @Test
+    public void noSongWithoutATitle() throws Exception
+    {
+        Song noTitle = new Song("Dr. Dre", "", "https://www.youtube.com/watch?v=qg4NkA1B9Pc");
+        assertThrows(IllegalArgumentException.class, ()-> {songList.addSong(noTitle);});
+
+    }
+
+    @Test
+    public void noSongWithoutAVideoURL() throws Exception
+    {
+        Song noURL = new Song("Dr. Dre", "Forgot About Dre", "");
+        assertThrows(IllegalArgumentException.class, () -> {songList.addSong(noURL);});
+    }
+
+    @Test
+    @Generated("Confirm that a certain Artist is on the Songbook List")
+    public void searchArtist() throws Exception {
         songList.addSong(mockSong);
         boolean artistFound = songList.searchArtist("Ice Cube");
         assertTrue(artistFound, "Artist not found...");
@@ -64,6 +88,13 @@ public class SongBookTest
     {
         songList.removeSong(mockSong2.getTitle());
         assertNull(mockSong2, "Song has not been removed");
+
+    }
+
+    @AfterAll
+    public void destroyAll()
+    {
+
 
     }
 

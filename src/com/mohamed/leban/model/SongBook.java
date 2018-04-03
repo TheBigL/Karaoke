@@ -3,18 +3,36 @@ package com.mohamed.leban.model;
 import java.util.ArrayList;
 import java.util.List;
 
-class SongBook
+public class SongBook
 {
     List<Song> SongBook;
 
-    SongBook() {
+    public SongBook() {
         SongBook = new ArrayList<Song>();
     }
 
 
-    void addSong(Song song)
+    void addSong(Song song) throws Exception
     {
+        if(song.getArtist().equals(null) || song.getArtist().equals(""))
+        {
+            throw new IllegalArgumentException("You gotta add an artist to the list!");
+        }
+
+        else if(song.getTitle().equals(null) || song.getTitle().equals(""))
+        {
+            throw new IllegalArgumentException("You gotta add an artist to track you're trying to add!");
+        }
+
+        else if (song.getVideoURL().equals(null) || song.getVideoURL().equals(""))
+        {
+            throw new IllegalArgumentException("You gotta add a video URL to the track you're trying to add!");
+        }
+        else
+        {
         SongBook.add(song);
+        }
+
     }
 
     int getSongBookSize()
@@ -39,7 +57,7 @@ class SongBook
 
 
 
-    //TODO: Create a method to remove a song from a list.
+
     public void removeSong(String title)
     {
 
@@ -48,6 +66,7 @@ class SongBook
             if(title.equals(testSong.getTitle()))
             {
                 SongBook.remove(testSong);
+                System.out.printf("The song %s has been removed!", testSong.getTitle());
                 break;
             }
         }

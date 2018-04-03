@@ -45,7 +45,7 @@ public class Song
 
     public void readyToSing(Song song)
     {
-        System.out.printf("");
+        System.out.printf("You ready to sing %s? GO!\n Here's the link: %s", song.getTitle(), song.getVideoURL());
     }
 
 
