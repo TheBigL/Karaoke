@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eafeab85-861d-4f16-814f-01e3b3dc2878" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Karaoke.iml" afterPath="$PROJECT_DIR$/Karaoke.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mohamed/leban/Main.java" afterPath="$PROJECT_DIR$/src/com/mohamed/leban/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mohamed/leban/model/KaraokeMachine.java" afterPath="$PROJECT_DIR$/src/com/mohamed/leban/model/KaraokeMachine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mohamed/leban/model/Song.java" afterPath="$PROJECT_DIR$/src/com/mohamed/leban/model/Song.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mohamed/leban/model/SongBook.java" afterPath="$PROJECT_DIR$/src/com/mohamed/leban/model/SongBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/com/mohamed/leban/model/SongBookTest.java" afterPath="$PROJECT_DIR$/tests/com/mohamed/leban/model/SongBookTest.java" />
-    </list>
+    <list default="true" id="eafeab85-861d-4f16-814f-01e3b3dc2878" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +15,7 @@
       <file leaf-file-name="KaraokeMachine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mohamed/leban/model/KaraokeMachine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="969">
               <caret line="61" column="97" lean-forward="true" selection-start-line="61" selection-start-column="97" selection-end-line="61" selection-end-column="97" />
               <folding />
             </state>
@@ -418,7 +410,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522634058961</updated>
-      <workItem from="1522634082181" duration="10349000" />
+      <workItem from="1522634082181" duration="11391000" />
     </task>
     <servers />
   </component>
@@ -452,7 +444,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10349000" />
+    <option name="totallyTimeSpent" value="11391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -607,7 +599,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mohamed/leban/model/KaraokeMachine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="969">
           <caret line="61" column="97" lean-forward="true" selection-start-line="61" selection-start-column="97" selection-end-line="61" selection-end-column="97" />
           <folding />
         </state>
