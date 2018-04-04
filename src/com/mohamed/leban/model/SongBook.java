@@ -61,6 +61,20 @@ public class SongBook
         return artistFound;
     }
 
+ public boolean doesSongExist(String title)
+ {
+     for(Song testSong: SongBook)
+     {
+         if(title == testSong.getTitle())
+         {
+             System.out.println("You're in luck! This song does exist on in the Songbook.");
+             return true;
+         }
+     }
+     System.out.printf("Sorry, but %s isn't in the machine. Try loading it there.", title);
+     return false;
+ }
+
 
 
 

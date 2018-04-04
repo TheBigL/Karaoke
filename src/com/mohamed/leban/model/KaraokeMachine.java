@@ -19,11 +19,6 @@ public class KaraokeMachine
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         menu = new HashMap<String, String>();
         menu.put("add", "Add a song to the Songbook");
-        if(songBook.getSongBookSize() > 0)
-        {
-            menu.put("sing", "Sing a song from the list");
-            menu.put("delete", "Delete a song from the Songbook");
-        }
         menu.put("quit", "Quit and turn off the Karaoke Machine.");
     }
 
@@ -64,7 +59,7 @@ public class KaraokeMachine
                         }
 
                     case "delete":
-                        //TODO: Delete a song
+
                         deleteSong();
                         if(songBook.getSongBookSize() == 0)
                         {
@@ -74,11 +69,15 @@ public class KaraokeMachine
 
 
                     case "sing":
-                        //TODO: Add a method in which the user can perform a copypasta on the URL
                         pickSong();
+                        break;
 
                     case "quit":
                         System.out.println("Thanks for playing!\n I hope you play again sometime.\n");
+                        break;
+
+                    default:
+                        System.out.println("Didn't quite catch that... Try again.");
                         break;
 
                 }
@@ -120,29 +119,31 @@ public class KaraokeMachine
     private void pickSong() throws IOException
     {
         Song song = null;
-        System.out.println("What do you want to sing?");
-        for(Song pickSong: songBook.SongBook)
-        {
-            System.out.printf("%s - %s\n", pickSong.getTitle(), pickSong.getArtist());
-        }
+        String selectedSong;
+
         do
         {
-            System.out.println("Select a song!\n If you want to go back to the main menu, type 'quit' or 'exit'");
-            String selectedSong = bufferedReader.readLine();
-            if(selectedSong == "quit".toLowerCase().trim() || selectedSong == "exit".toLowerCase().trim())
+            System.out.println("What do you want to sing?");
+            for(Song pickSong: songBook.SongBook)
             {
-                run();
+                System.out.printf("%s - %s\n", pickSong.getTitle(), pickSong.getArtist());
+            }
+
+            System.out.println("Select a song!\nIf you want to go back to the main menu, type 'quit' or 'exit'");
+            selectedSong = bufferedReader.readLine();
+            if(selectedSong.equals("quit") || selectedSong.equals("exit"))
+            {
+                promptAction();
                 break;
             }
             song = songBook.findSong(selectedSong);
-            if(song == null)
-            {
+            if (song == null) {
                 System.out.println("The song needs to exist first!");
             }
 
 
         }
-        while (song == null);
+        while (!songBook.doesSongExist(selectedSong));
 
 
 

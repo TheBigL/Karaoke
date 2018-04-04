@@ -1,9 +1,6 @@
 package com.mohamed.leban.model;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.function.Executable;
 
 import javax.annotation.processing.Generated;
@@ -19,7 +16,7 @@ public class SongBookTest
     List<Song> listOfSongs;
     private Song mockSong, mockSong2, mockSong3, mockSong4, mockSong5;
 
-    @BeforeAll
+    @BeforeEach
     public void setUp() throws Exception {
         //Adding various songs to the SongBook
         //色々な歌を唱歌集に追加する
@@ -40,11 +37,13 @@ public class SongBookTest
     //Test Passed! :thumbsup:
     @Test
     @Generated("Test adding the songs!")
-    public void addSongTest() throws Exception {
+    public void shouldAddSong() throws Exception {
         Song testSong = new Song("Hi Tide Harris", "Bison's Dream", "https://www.youtube.com/watch?v=dx9a2gYZu4Y&t=95s");
         songList.addSong(testSong);
-        assertEquals(songList.getSongBookSize(), 6, "The expected song book size test failed...");
+        assertEquals(6, songList.getSongBookSize(), "The expected song book size test failed...");
     }
+
+
 /*
 Exception Handling Testing
 Keep in mind that I am using JUnit5 to build these Unit Tests.
@@ -77,13 +76,7 @@ Keep in mind that I am using JUnit5 to build these Unit Tests.
         assertThrows(IllegalArgumentException.class, () -> {songList.addSong(noURL);});
     }
 
-    //Test Passed! :thumbsup:
-    @Test
-    @Generated("Confirm that a certain Artist is on the Songbook List")
-    public void searchArtist() throws Exception {
-        boolean artistFound = songList.searchArtist("Ice Cube");
-        assertTrue(artistFound, "Artist not found...");
-    }
+
 
 
     //Test Passed! :thumbsup:
@@ -92,7 +85,7 @@ Keep in mind that I am using JUnit5 to build these Unit Tests.
     public void removeSongByTitle()
     {
         songList.removeSong("Still DRE");
-        assertEquals(songList.getSongBookSize(), 4, "Song hasn't been removed from the Song Book");
+        assertEquals(4, songList.getSongBookSize(), "Song hasn't been removed from the Song Book");
 
     }
 
@@ -109,6 +102,22 @@ Keep in mind that I am using JUnit5 to build these Unit Tests.
     {
         songList.removeSong("Chunky");
         assertEquals(songList.getSongBookSize(), 5, "Oh Snap! Song has been removed!");
+    }
+
+    @Test
+    public void noSongExistsLikeThat()
+    {
+        //Test to Fail
+        //assertFalse(songList.doesSongExist("Macho Man"));
+
+        assertFalse(songList.doesSongExist("Finesse"));
+    }
+
+    @Test
+    public void songDoesExist()
+    {
+        assertTrue(songList.doesSongExist("Macho Man"));
+
     }
 
 
