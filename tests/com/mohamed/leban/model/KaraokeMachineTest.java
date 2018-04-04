@@ -19,6 +19,8 @@ public class KaraokeMachineTest
     private BufferedReader bufferedReader;
     private HashMap<String, String> menu;
     KaraokeMachine karaokeMachine;
+    SongBook songList;
+    Song mockSong, mockSong2, mockSong3, mockSong4, mockSong5;
 
 
 
@@ -29,8 +31,26 @@ public class KaraokeMachineTest
         menu = new HashMap<>();
         songBook = new SongBook();
         karaokeMachine = new KaraokeMachine(songBook);
+        mockSong = new Song("Village People", "Macho Man", "https://www.youtube.com/watch?v=rV6gYFKrT7Y");
+        mockSong2 = new Song("Dr. Dre", "Still DRE", "https://www.youtube.com/watch?v=x7yPhExdj3E");
+        mockSong3 = new Song("Ice Cube", "Check Yo Self", "https://www.youtube.com/watch?v=5aAbOgdbTbM");
+        mockSong4 = new Song("Bruno Mars", "24K Magic", "https://www.youtube.com/watch?v=UqyT8IEBkvY");
+        mockSong5 = new Song("Eric Clapton", "Change The World", "https://www.youtube.com/watch?v=x11NA63gLDM");
+
+        try {
+            songList.addSong(mockSong);
+            songList.addSong(mockSong2);
+            songList.addSong(mockSong3);
+            songList.addSong(mockSong4);
+            songList.addSong(mockSong5);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
+
+
 
 
 

@@ -40,6 +40,7 @@ public class SongBook
         return SongBook.size();
     }
 
+    //Unit Tested
     public boolean searchArtist(String artist)
     {
         boolean artistFound = false;
@@ -48,7 +49,13 @@ public class SongBook
             if(artist == testSong.getArtist())
             {
                 artistFound = true;
+                System.out.printf("%s has been found.");
             }
+        }
+
+        if(!artistFound)
+        {
+            System.out.println("No such user has been found.");
         }
 
         return artistFound;
@@ -58,21 +65,40 @@ public class SongBook
 
 
 
+
+    //Unit Tested
     public void removeSong(String title)
     {
-
-        for(Song testSong: SongBook)
+        if(title.equals(null) || title.equals(""))
         {
-            if(title.equals(testSong.getTitle()))
-            {
-                SongBook.remove(testSong);
-                System.out.printf("The song %s has been removed!", testSong.getTitle());
-                break;
-            }
+            throw new IllegalArgumentException("You can't remove a song without a title!");
         }
 
-        System.out.printf("%s is not in our list of songs...", title);
+        else
+        {
+            boolean isRemoved = false;
 
+            for(Song testSong: SongBook)
+            {
+                if(testSong.getTitle().equals(title))
+                {
+                    isRemoved = true;
+                    SongBook.remove(testSong);
+                    System.out.printf("The song %s has been removed! %n", testSong.getTitle());
+                    break;
+                }
+
+                else
+                {
+                    continue;
+                }
+            }
+
+            if(!isRemoved)
+            {
+                System.out.printf("%s is not in our list of songs... %n", title);
+            }
+        }
 
     }
 
