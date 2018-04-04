@@ -85,14 +85,6 @@ Keep in mind that I am using JUnit5 to build these Unit Tests.
         assertTrue(artistFound, "Artist not found...");
     }
 
-    @Test
-    @Generated("Get Individual Song by Artist")
-    public void getSongByTitle()
-    {
-
-
-
-    }
 
     //Test Passed! :thumbsup:
     @Test

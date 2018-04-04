@@ -102,6 +102,21 @@ public class SongBook
 
     }
 
+    public Song findSong(String title)
+    {
+        Song desiredSong = null;
+        for(Song song: SongBook)
+        {
+            if(title.equals(song.getTitle()))
+            {
+                desiredSong = song;
+            }
+        }
+
+        return desiredSong;
+
+    }
+
 
 
 }
